@@ -4,8 +4,7 @@ public class Car {
     private int serbatoio=0;
     private double resa;
 
-    public Car(int serbatoio,double resa){
-        this.serbatoio=serbatoio;
+    public Car(double resa){
         this.resa=resa;
     }
     public int drive(double km){
@@ -24,7 +23,7 @@ public class Car {
         System.out.println("Sono stati riforniti "+gas+" l.");
     }
     public static void main(String[] args) {
-        Car car1=new Car(0,14);
+        Car car1=new Car(14);
         car1.addGas(15);
         car1.drive(150);
         car1.getGas();
