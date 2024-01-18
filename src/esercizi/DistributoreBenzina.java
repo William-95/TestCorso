@@ -29,10 +29,12 @@ public class DistributoreBenzina {
     public static void main(String[] args) {
         DistributoreBenzina dist= new DistributoreBenzina(2);
         Car car1=new Car(14);
+
         dist.rifornisci(50);
         dist.aggiorna(1.5);
         System.out.println("Prezzo carburante: "+dist.euroPerLitro);
         dist.vendi(16,car1);
         car1.getGas();
+        dist.getDeposito();
     }
 }
