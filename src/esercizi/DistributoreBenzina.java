@@ -10,10 +10,14 @@ public class DistributoreBenzina {
     public void rifornisci(double unaQuantita){
         deposito+=unaQuantita;
         System.out.println("Sono stati riforniti "+unaQuantita+" l.");
+        getDeposito();
     }
-    public void vendi(double euro, Car unaAutomobile){              //da finire
-        double benzinaAcquistata= euroPerLitro/euro;
+    public void vendi(double euro, Car unaAutomobile){              //vendi carburante ad un auto
+        double benzinaAcquistata= (euro / euroPerLitro);
         System.out.println("Aquistati l: "+benzinaAcquistata);
+        unaAutomobile.addGas(benzinaAcquistata);
+        deposito -=benzinaAcquistata;
+        getDeposito();
     }
     public void aggiorna(double unPrezzoPerLitro){   //aggiorna il prezzp della benzina
         this.euroPerLitro=unPrezzoPerLitro;
@@ -23,11 +27,12 @@ public class DistributoreBenzina {
         System.out.println("Deposito: "+deposito);
     }
     public static void main(String[] args) {
-        DistributoreBenzina dist= new DistributoreBenzina(1.89);
-        dist.rifornisci(100);
-        dist.getDeposito();
-        dist.aggiorna(10);
+        DistributoreBenzina dist= new DistributoreBenzina(2);
+        Car car1=new Car(14);
+        dist.rifornisci(50);
+        dist.aggiorna(1.5);
         System.out.println("Prezzo carburante: "+dist.euroPerLitro);
-        dist.vendi(10,new Car(14));
+        dist.vendi(16,car1);
+        car1.getGas();
     }
 }
