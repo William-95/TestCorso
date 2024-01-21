@@ -39,21 +39,11 @@ public class Prodotti {
 
     @Override
     public String toString() {
-        return super.getClass().getName()+" codice a barre: "+ this.codiceBarre;
+//        return super.getClass().getName()+" codice a barre: "+ this.codiceBarre;
+    return "codice prodotto: "+codiceBarre+
+            "\n descrizione: "+descrizione+
+            "\n prezzo: "+prezzo;
     }
 
-    public static void main(String[] args) {
-        Prodotti prod=new Prodotti("ciambelle fresche",1.50,"1234667891011");
-//        String id1=prod.getCodiceBarre();
-//
-//        System.out.println(id1);
-//        Prodotti prod1=new Prodotti("cappuccino",3,"1234667891014");
-//        String id2=prod1.getCodiceBarre();
-//        System.out.println(id2);
-//
-//        prod1.applicaSconto();
-//        double prezzo= prod1.getPrezzo();
-//        System.out.println(prezzo);
-        System.out.println(prod.toString());
-    }
+
 }

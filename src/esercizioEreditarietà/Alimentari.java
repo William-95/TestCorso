@@ -1,7 +1,6 @@
 package esercizioEreditarietà;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Alimentari extends Prodotti{
@@ -16,32 +15,31 @@ public class Alimentari extends Prodotti{
 
     public LocalDate getDataScadenza(){return dataScadenza;}
 
-    @Override           //finire
+    @Override
     public void applicaSconto() {
         LocalDate giorniPrima = dataScadenza.minusDays(10);
-        Period period = Period.between(dataScadenza, giorniPrima);
-        int years = Math.abs(period.getYears());
-        int months = Math.abs(period.getMonths());
-        int days = Math.abs(period.getDays());
-        System.out.println(giorniPrima);
-//        LocalDate dataCorrente=LocalDate.now();
-//        if((dataCorrente-dataScadenza)<=10){
-//            double extraSconto=(super.getPrezzo()/100)*20;
-//            System.out.println("sconto:"+extraSconto);
-//            super.getPrezzo() - extraSconto
-//        }
-//         super.applicaSconto();
+        LocalDate dataCorrente= LocalDate.now();
+
+        if (dataCorrente.isAfter(giorniPrima)) {
+            double extraSconto=(super.getPrezzo()/100)*20;
+            System.out.println("sconto prodotti Alimentari: "+extraSconto);
+            super.setPrezzo(super.getPrezzo()-extraSconto);
+        }
+        super.getPrezzo();
     }
 
     public static void main(String[] args) {
-        Alimentari pasta=new Alimentari("pacco di pasta buona",1.20,"6491526157894","2024-02-15");
+        Alimentari pasta=new Alimentari("pacco di pasta buona",1.20,"6491526157894","2024-01-30");
        LocalDate leggiData= pasta.getDataScadenza();
-        double prezzo= pasta.getPrezzo();
+
         String desc= pasta.getDescrizione();
         System.out.println(leggiData);
+        pasta.applicaSconto();
+        double prezzo= pasta.getPrezzo();
         System.out.println(prezzo);
         System.out.println(desc);
-        pasta.applicaSconto();
+
+
     }
 
 }

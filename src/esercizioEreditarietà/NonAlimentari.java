@@ -1,6 +1,5 @@
 package esercizioEreditarietà;
 
-import java.util.Objects;
 
 public class NonAlimentari extends Prodotti{
 
@@ -17,9 +16,8 @@ public class NonAlimentari extends Prodotti{
     public void applicaSconto() {
         if (materialePrincipale=="plastica" || materialePrincipale=="vetro"|| materialePrincipale=="carta") {
             double extraSconto=(super.getPrezzo()/100)*10;
-            System.out.println("sconto:"+extraSconto);
-            double nuovoPrezzo = super.getPrezzo() - extraSconto;
-            super.setPrezzo(nuovoPrezzo);
+            System.out.println("sconto prodotti NonAlimentari: "+extraSconto);
+            super.setPrezzo(super.getPrezzo() - extraSconto);
         }
          super.getPrezzo();
     }
